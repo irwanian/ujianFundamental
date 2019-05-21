@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table, thead, td{
+            padding: 20px;
+            border: 2px solid black;
+            border-collapse: collapse
+            }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Drawing Tools</h1>
+        <table>
+            <thead>
+                <td>1. persegi<br><br>
+                    2. segitiga siku2 rata kiri <br><br>
+                    3. segitiga siku2 rata kanan <br><br>
+                    jenis bangunan: <br> <br>
+                    <input type="number" id="bangunan"><br><br>
+                    ukuran: <br><br>
+                    <input type= 'number' id="ukuran" > <br><br>
+                    <input type="button" onclick="printHasil()" value="lihat">   
+                </td>
+            </thead>
+            <tbody>
+                <br><br>
+            </tbody>
+        </table>
+    </center>
+
+    <script>
+
+
+
+
+    function Persegi() {
+        var input = document.getElementById('ukuran').value 
+        var hasil = ''
+        for(var x=0; x<input; x++){
+            for (var y = 0; y<input; y++){
+                hasil += '*'
+            } hasil += '<br>'
+        }document.getElementsByTagName('tbody')[0] = document.write(hasil)
+    }
+
+    function segitigaKiri() {
+        var input = document.getElementById('ukuran').value 
+        var hasil = ''
+        for(var x=0; x<input; x++){
+            for (var y = input; y>x; y--){
+                hasil += ' '
+            }for(var z= 0; z<=x; z++ ){
+                hasil+= '*'
+            }hasil += '<br>'
+        }document.getElementsByTagName('tbody')[0] = document.write(hasil)
+    }
+
+
+    function segitigaKanan() {
+        var input = document.getElementById('ukuran').value 
+        var hasil = ''
+        for(var x=0 ; x<input; x++){
+            for (var y = input; y>x; y--){
+                hasil += ' '
+            }for(var z= 0; z<=x; z++ ){
+                hasil+= '*'
+            } hasil+= '<br>'
+        } document.getElementsByTagName('tbody')[0] = document.write(hasil)
+    }
+    
+    function printHasil() {
+        var bangunan = ''
+        if(document.getElementById('bangunan').value == 1){
+            bangunan = Persegi()
+        }else if(document.getElementById('bangunan').value ==2){
+            bangunan = segitigaKiri()
+        }else if(document.getElementById('bangunan').value ==3){
+            bangunan = segitigaKanan()
+        }
+        document.getElementsByTagName('tbody')[0].innerHTML = bangunan
+    }    
+
+    </script>
+</body>
+</html>
