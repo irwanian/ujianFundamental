@@ -1,11 +1,11 @@
 function accum (a) {
-
+    
     var x = ''
         for(var i = 0; i < a.length; i++){
             for(var j = i; j <= i; j++){
                 x += a[i].toUpperCase()
             } for (var k = 1 ; k <= i; k++) {
-                x += a[i]
+                x += a[i].toLowerCase()
             } if(a.length-1 > i) {
                 x += '-'
             }
@@ -13,8 +13,5 @@ function accum (a) {
     return x
 }
 
-console.log(accum('abcde'));
+console.log(accum('abcHGYde'));
 
-
-
-        

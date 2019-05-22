@@ -14,7 +14,7 @@
     </style>
 </head>
 <body>
-    <center>
+    
         <h1>Drawing Tools</h1>
         <table>
             <thead>
@@ -27,64 +27,51 @@
                     <input type= 'number' id="ukuran" > <br><br>
                     <input type="button" onclick="printHasil()" value="lihat">   
                 </td>
-            </thead>
+            </thead>            
+        </table>
+        <br>
+        <table>
             <tbody>
-                <br><br>
+                
             </tbody>
         </table>
-    </center>
+        <p>
 
-    <script>
+        </p>
+        <script>
 
-
-
-
-    function Persegi() {
-        var input = document.getElementById('ukuran').value 
-        var hasil = ''
-        for(var x=0; x<input; x++){
-            for (var y = 0; y<input; y++){
-                hasil += '*'
-            } hasil += '<br>'
-        }document.getElementsByTagName('tbody')[0] = document.write(hasil)
-    }
-
-    function segitigaKiri() {
-        var input = document.getElementById('ukuran').value 
-        var hasil = ''
-        for(var x=0; x<input; x++){
-            for (var y = input; y>x; y--){
-                hasil += ' '
-            }for(var z= 0; z<=x; z++ ){
-                hasil+= '*'
-            }hasil += '<br>'
-        }document.getElementsByTagName('tbody')[0] = document.write(hasil)
-    }
-
-
-    function segitigaKanan() {
-        var input = document.getElementById('ukuran').value 
-        var hasil = ''
-        for(var x=0 ; x<input; x++){
-            for (var y = input; y>x; y--){
-                hasil += ' '
-            }for(var z= 0; z<=x; z++ ){
-                hasil+= '*'
-            } hasil+= '<br>'
-        } document.getElementsByTagName('tbody')[0] = document.write(hasil)
-    }
+   
     
     function printHasil() {
-        var bangunan = ''
+        var input = document.getElementById('ukuran').value
         if(document.getElementById('bangunan').value == 1){
-            bangunan = Persegi()
+            var persegi = ''
+            for(var i = 0 ; i<input; i++){
+                for(var j =0;  j<input; j++){
+                    persegi += '*'
+                }persegi += '<br>'
+            }document.getElementsByTagName('p')[0].innerHTML = persegi
         }else if(document.getElementById('bangunan').value ==2){
-            bangunan = segitigaKiri()
-        }else if(document.getElementById('bangunan').value ==3){
-            bangunan = segitigaKanan()
+            var segitigaKiri = ''
+            for(var x = 0; x<input; x++){
+                for(var y = 0; y<=x; y++){
+                    segitigaKiri += '*'
+                }segitigaKiri += '<br>' 
+            }document.getElementsByTagName('p')[0].innerHTML = segitigaKiri
+        }else if(document.getElementById('bangunan').value== 3){
+            var segitigaKanan = ''
+            for(var x = 0;x<input; x++){
+                for(var y = input; y>x; y--){
+                    segitigaKanan+= '&nbsp  &nbsp'
+                }for(var z = 0; z<= x; z++){
+                    segitigaKanan+= '&nbsp'+ '*'
+                }segitigaKanan+= '<br>'
+            }document.getElementsByTagName('p')[0].innerHTML = segitigaKanan
         }
-        document.getElementsByTagName('tbody')[0].innerHTML = bangunan
-    }    
+        document.getElementById('bangunan').value = ''
+        document.getElementById('ukuran').value = ''
+    
+    }
 
     </script>
 </body>
